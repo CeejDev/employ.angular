@@ -1,0 +1,8 @@
+form {
+    padding-bottom: 2rem;
+}
+
+.container {
+    min-height: calc(100vh - 100px);
+    padding-bottom: 3rem;
+}
