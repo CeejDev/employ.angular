@@ -3,7 +3,7 @@ export interface Employee {
     firstname: string;
     lastname: string;
     age: number;
-    number: string;
+    number?: string;  // Make it optional with '?'
     email: string;
     address: string;    
 }

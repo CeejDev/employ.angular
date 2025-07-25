@@ -2,42 +2,47 @@
   <h2>Add New Employee</h2>
   <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
     <div class="mb-3">
-      <label for="firstname" class="form-label">First Name</label>
+      <label for="firstname" class="form-label">First Name *</label>
       <input type="text" class="form-control" id="firstname" 
              [(ngModel)]="employee.firstname" name="firstname" required>
     </div>
     
     <div class="mb-3">
-      <label for="lastname" class="form-label">Last Name</label>
+      <label for="lastname" class="form-label">Last Name *</label>
       <input type="text" class="form-control" id="lastname" 
              [(ngModel)]="employee.lastname" name="lastname" required>
     </div>
     
     <div class="mb-3">
-      <label for="age" class="form-label">Age</label>
+      <label for="age" class="form-label">Age *</label>
       <input type="number" class="form-control" id="age" 
-             [(ngModel)]="employee.age" name="age" required>
+             [(ngModel)]="employee.age" name="age" required
+             min="18" max="99">
+      <small class="form-text text-muted">Age must be between 18 and 99</small>
     </div>
     
     <div class="mb-3">
       <label for="number" class="form-label">Phone Number</label>
       <input type="text" class="form-control" id="number" 
-             [(ngModel)]="employee.number" name="number" required>
+             [(ngModel)]="employee.number" name="number"
+             placeholder="Optional"
+             pattern="\d{11}">
+      <small class="form-text text-muted">Must be exactly 11 digits if provided</small>
     </div>
     
     <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
+      <label for="email" class="form-label">Email *</label>
       <input type="email" class="form-control" id="email" 
              [(ngModel)]="employee.email" name="email" required>
     </div>
     
     <div class="mb-3">
-      <label for="address" class="form-label">Address</label>
+      <label for="address" class="form-label">Address *</label>
       <textarea class="form-control" id="address" 
                 [(ngModel)]="employee.address" name="address" required></textarea>
     </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
-    <a routerLink="/" class="btn btn-secondary ms-2">Cancel</a>
+    <button type="button" class="btn btn-secondary ms-2" (click)="onCancel()">Cancel</button>
   </form>
 </div>
